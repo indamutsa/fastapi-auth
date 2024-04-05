@@ -1,11 +1,6 @@
-# a simpple fastapi app
-from fastapi import FastAPI, Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-import uvicorn
+from fastapi import FastAPI
+from routes.route import router
 
 app = FastAPI()
 
-# Endpoints
-@app.get("/test")
-async def test():
-    return {"message": "Hello World"}
+app.include_router(router)
